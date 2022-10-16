@@ -1,18 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip,
 } from 'recharts';
 
-const data = [
-  { time: '20:55', power: 400 },
-  { time: '21:00', power: 300 },
-  { time: '21:05', power: 200 },
-  { time: '21:10', power: 350 },
-  { time: '21:15', power: 500 },
-];
+function PowerTimeSeriesLineChart(props) {
+  const { data } = props;
 
-function PowerTimeSeriesLineChart() {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
@@ -35,5 +30,14 @@ function PowerTimeSeriesLineChart() {
     </ResponsiveContainer>
   );
 }
+
+PowerTimeSeriesLineChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      time: PropTypes.string,
+      power: PropTypes.number,
+    }),
+  ).isRequired,
+};
 
 export default PowerTimeSeriesLineChart;
