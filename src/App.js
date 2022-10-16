@@ -14,7 +14,6 @@ function App() {
         const d = data.map((i) => ({
           power: i.power,
           time: DateTime.fromISO(i.time).toSeconds(),
-          // time: i.time,
         }));
         setTotalPower(d);
       });

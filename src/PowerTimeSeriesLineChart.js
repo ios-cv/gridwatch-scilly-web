@@ -51,7 +51,7 @@ function PowerTimeSeriesLineChart(props) {
 PowerTimeSeriesLineChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      time: PropTypes.string,
+      time: PropTypes.number,
       power: PropTypes.number,
     }),
   ).isRequired,
