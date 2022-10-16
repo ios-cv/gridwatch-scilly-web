@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { DateTime } from 'luxon';
 
 import './App.css';
 import PowerTimeSeriesLineChart from './PowerTimeSeriesLineChart';
@@ -9,7 +10,14 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:8000/grid/flow')
       .then((response) => response.json())
-      .then((data) => setTotalPower(data));
+      .then((data) => {
+        const d = data.map((i) => ({
+          power: i.power,
+          time: DateTime.fromISO(i.time).toSeconds(),
+          // time: i.time,
+        }));
+        setTotalPower(d);
+      });
   }, []);
 
   return (
