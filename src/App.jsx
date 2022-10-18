@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
 
 import './App.css';
-import PowerTimeSeriesLineChart from './PowerTimeSeriesLineChart';
+import PowerTimeSeriesLineChart from './PowerTimeSeriesLineChart.jsx';
 
 function App() {
   const [totalPower, setTotalPower] = useState([]);
